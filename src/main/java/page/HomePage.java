@@ -9,6 +9,16 @@ import org.openqa.selenium.support.FindBy;
  */
 @Data
 public class HomePage {
-    @FindBy(id = "toolbar-search-input")
-    private WebElement sousuo;
+
+    // 搜索框
+    @FindBy(id = "toolbar-search-input22")
+    private WebElement searchBar;
+
+    // 搜索按钮
+    @FindBy(id = "toolbar-search-button")
+    private WebElement searchButton;
+
+    // 标签列表，可修改属性可见
+    @FindBy(xpath = "//*[@id=\"floor-nav_557\"]/div/div")
+    private WebElement listOfTags;
 }

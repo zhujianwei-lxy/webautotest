@@ -9,18 +9,18 @@ import utils.Utils;
 
 import java.util.concurrent.TimeUnit;
 
-public class HomePageTest {
+public class HomePageTest{
     HomePage homePage = new HomePage();
-    WebDriver driver = Utils.getDriver();
+    WebDriver driver = Utils.getChromeDriver();
 
 
     @Test
-    public void chaxun(){
+    public void searchBarTest(){
         driver.get("https://www.csdn.net/");
         PageFactory.initElements(driver, homePage);
         Allure.addAttachment("输入","测试");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        homePage.getSousuo().sendKeys("测试");
+        homePage.getSearchBar().sendKeys("测试");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
