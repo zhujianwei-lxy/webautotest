@@ -1,14 +1,14 @@
 package testcase;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.HomePage;
 import utils.Utils;
+
+import java.io.File;
 
 public class Practice {
     WebDriver driver = Utils.getChromeDriver();
@@ -179,6 +179,25 @@ public class Practice {
         PageFactory.initElements(driver, homePage);
         driver.navigate().to("https://www.csdn.net/");//打开该网页
         setAttribute(driver, homePage.getListOfTags(),"class","blog-nav active");
+    }
+
+    @Test
+    public void demo6(){
+        File file;
+        driver.navigate().to("https://www.csdn.net/");//打开该网页
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        Utils.creatFile(file);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        driver.quit();
     }
 
 }
